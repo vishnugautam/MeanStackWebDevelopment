@@ -1,0 +1,37 @@
+<!--
+- callback functions are functions called inside another function as an argument
+- Asynchronous program - until a long task is getting finished the program carry on with other parts to execute
+- it will not block the next task 
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1 id="demo"> I am current text</h1>
+    <script>
+        function first() {
+            console.log("first function executed");
+        };
+
+        function second() {
+            console.log("second function executed");
+        };
+
+        function third() {
+            console.log("third function executed");
+        };
+
+        console.log("first function called");
+        first();
+        console.log("second function called");
+        setTimeout(second, 3000); // it will not block the next task 
+        console.log("third function called"); // this will be executed before the above code 
+        third(); // this will be executed and after this the setTimeout will be executed 
+    </script>
+</body></html>

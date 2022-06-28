@@ -1,0 +1,25 @@
+<!--
+- callback functions are functions called inside another function as an argument
+- Asynchronous program - until a long task is getting finished the program carry on with other parts to execute
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1 id="demo"> I am current text</h1>
+    <script>
+        setTimeout(myFunction, 3000);
+        // setTimeOut is an inbuit function and myFunction is passed as a parameter
+        // so it is called callBack function 
+
+        function myFunction() {
+            document.getElementById("demo").innerHTML = "I have changed now";
+        };
+    </script>
+</body></html>

@@ -1,0 +1,62 @@
+<!--
+- IIFE - immediately invoked function expression 
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1 id="demo"> I am current text</h1>
+    <script>
+        var counter = 10;
+        // function expression 
+        var sum = function(a, b) {
+            return a + b + counter;
+        };
+        // function expression 
+        var diff = function(a, b) {
+            return a - b - counter;
+        };
+
+        console.log(sum(3, 4));
+        console.log(diff(30, 0));
+
+        // IIFE approach
+        // function declaration - we must give a name if we declare using the below approach
+
+        (function() { // anonymous function 
+            var counter = 10;
+
+            function sum(a, b) {
+                //                var counter = 10;
+                return a + b + counter;
+            };
+
+            function diff(a, b) {
+                //                var counter = 10;
+                // 2. if we declare the variable inside the function then we have to declare it as many
+                // time as we create more functions, and we have to change the value in each function seperately 
+                return a - b - counter;
+            };
+
+            console.log(sum(3, 4));
+            console.log(diff(30, 0));
+        }());
+        // exactly the same output but 
+        // () is mandatory, means, it will be invoked immediately ());
+        // function inside another function 
+        // advantages:
+        // 1. it isolates the variable declaration - counter becomes a local variable 
+        // so no global polution, it will not mess with any global variables as the
+        // scope of global variable is throughout the program
+        // 2. if we declare the variable inside the function then we have to declare it as many
+        // time as we create more functions, and we have to change the value in each function seperately 
+    </script>
+</body></html>
+
+
