@@ -1,0 +1,34 @@
+<!--
+- Closure, it is used for encapsulation 
+- encapsulation means information hidding
+- closure is a fucntion that references variable in its outer scope 
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1 id="demo"> I am current text</h1>
+    <script>
+        function greeting(message) {
+            return function(name) {
+                return message + " " + name;
+            };
+        };
+
+        let sayHi = greeting("Hi"); // the scoope will not be lost 
+        let sayHello = greeting("Hello"); // hi and hello has been retained 
+        console.log(sayHi); // it returns a function because we didn't pass any argument
+        // sayHi returns the function which is "return message + " " + name;" but when we pass "john" in it, it actually returns the message + name in which the message is already retained
+        console.log(sayHi("John")); // "hi" and "hello" has been retained - the value of the message is retained - sayHi and sayHello are closures as greeting has already been called but it reatins the "hi" and "hello" 
+        console.log(sayHello); // we are encapsulating the message variable 
+        console.log(sayHello("John"));
+    </script>
+</body></html>
+
+
