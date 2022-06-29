@@ -1,0 +1,38 @@
+<!--const is smiliar to let in the scope, the differences are:
+1. Let can be reassigned but const cannot be reassigned-->
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="">
+</head>
+
+<body>
+    <script>
+        //        let x = 1; {
+        //            let x = 5;
+        //            console.log(x);
+        //        }
+        //
+        //        console.log(x);
+
+        const y = 1; {
+            const y = 5;
+            console.log(y); // it will show 5 as const is a block scope
+        }
+
+        console.log(y); // it will show 1 
+        y = 10; // it will show typeerror as assigned to constant variable
+        // it cannot be reassigned
+        x = 10; // can be reassigned 
+
+        let name = "radha";
+        const car = "ford";
+
+        name = "mohan"; // it can be reassinged as it was declared with let
+        car = "ferrari"; // cannot be reasigned as it was declared with const
+    </script>
+</body></html>

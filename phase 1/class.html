@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="">
+</head>
+
+<body>
+    <p id="demo"></p>
+    <p id="demo1"></p>
+    <p id="demo2"></p>
+
+    <script>
+        class Car {
+            constructor(name, year) { // this constructor method will be executed automatically, this is used to initialise the object property, name should be constructor 
+                this.name = name;
+                this.yaer = year;
+            }
+
+            static hello() {
+                return "hello";
+            }
+        }
+
+        let myCar = new Car("Ford", 2010);
+        document.getElementById('demo').innerHTML = myCar.name + " " + myCar.yaer;
+        let myCar2 = new Car("Audi", "2019");
+        document.getElementById("demo1").innerHTML = myCar2.name + " " + myCar2.yaer;
+
+        let myCar3 = new Car("Toyota", 1992);
+        document.getElementById("demo2").innerHTML = myCar3.hello(); // normally we can call the method like Car.hello(), but the above myCar3.hello() wont work, it will return myCar3.hello is not a function 
+        // because it is static
+    </script>
+</body></html>

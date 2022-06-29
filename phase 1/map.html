@@ -1,0 +1,47 @@
+<!--Maps can contain functions, objects, other datatypes as key-->
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="">
+</head>
+
+<body>
+    <script>
+        const map1 = new Map();
+
+        // to add elements in map use set method
+
+        map1.set("name", "Vishnu"); // as key and value
+        map1.set("age", 28);
+        map1.set("nationality", "Indian");
+        map1.set("Profession", "Doctor");
+        console.log(map1);
+
+        // has method returns true if a key exists in a map
+        console.log(map1.has("Profession"));
+        // get method returns the value of the key
+        console.log(map1.get("Profession")); // the keys value which is doctor
+        // delete method removes both the key and value
+        console.log(map1.delete("Profession"));
+        console.log(map1);
+
+        // looping maps 
+        let empKeysData = '';
+        for (const i of map1.keys()) {
+            empKeysData += i + " ";
+        };
+
+        console.log(empKeysData);
+
+        let empKeysEntries = '';
+        for (const i of map1.entries()) { // entries shows both key and value
+            empKeysEntries += i + " ";
+        };
+
+        console.log(empKeysEntries);
+    </script>
+</body></html>

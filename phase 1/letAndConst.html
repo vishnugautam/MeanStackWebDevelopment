@@ -1,0 +1,44 @@
+<!--The differences between let and var are:
+1. var is global scope so it is applicable everywhere so if you declare var in a scope it takes the new value, let is block scope so when you declare it in a block, it wont take its value.
+2. var can be redeclared whereas let cannot be redeclared.
+3. var can be initialised before declaration but let cannot be initialised.
+-->
+
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+
+<body>
+    <p id="demo"></p>
+    <p id="demo1"></p>
+    <p id="demo2"></p>
+    <script>
+        // var is global scope, value is applicable everywhere
+        // let is a block scope so it will take 10
+        var x = 10;
+        let y = 10; {
+            var x = 2; // here, x becomes 2 
+            let y = 2; // it will be applicable in this block only
+
+        }
+
+        var x = 99; // this will change the value of x to 99
+        document.getElementById("demo").innerHTML = x;
+
+        //        let y = 15; // y cannot be redeclared
+        document.getElementById("demo1").innerHTML = y;
+
+        // variables can be used before they are declared but let will throw an error
+        a = 10;
+        console.log(typeof x);
+        var x; // var allows us to use the variable before it is declared
+
+        b = 8; // cannot access b before initialisation - because we declare it with let below
+        let b = 8;
+    </script>
+</body></html>

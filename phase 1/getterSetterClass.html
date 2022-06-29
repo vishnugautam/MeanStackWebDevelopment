@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="">
+</head>
+
+<body>
+    <p id="demo"></p>
+    <script>
+        class Company {
+            constructor(brand) {
+                this.compname = brand;
+            }
+            get name() {
+                return this.compname; // they add extra logic 
+            }
+            set name(x) {
+                this.compname = x + "Private ltd";
+            }
+        }
+
+        let myName = new Company("AW company");
+        document.getElementById('demo').innerHTML = myName.compname;
+
+        // it is executing the set name() from the below code
+        // everytime when you try to add a new value to the name method it sets the new name
+        myName.name = "IKM Tech";
+        // it is executing get name(x) from the below code
+        // everytime when we try to get the myName class and access its compname it gets the new set name and shows it 
+        document.getElementById('demo').innerHTML = myName.compname;
+    </script>
+</body></html>
