@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="">
+</head>
+
+<body>
+    <p id="demo"></p>
+    <script>
+        const myPromise = new Promise(function(myResolve, myReject) {
+            setTimeout(function() {
+                myResolve("Hello Everyone")
+            }, 3000)
+        });
+        myPromise.then(function(value) {
+            document.getElementById('demo').innerHTML = value;
+        });
+    </script>
+</body></html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="">
+</head>
+
+<body>
+    <p id="demo"></p>
+    <script>
+        function myDisplayer(some) {
+            document.getElementById("demo").innerHTML = some;
+        };
+
+        //        function myFunction() {
+        //            Promise.resolve("hello")
+        //        };
+        // the below line is like const myPromise = new Promise()
+        async function myFunction() { // same as the above lines
+            return HH // instead of a string we gave HH which will return an error
+            // returns promise.resolve("hello")
+        }
+        // if we put async infront of a function it attaches promise 
+        // if no error the below function(value) will be executed
+        myFunction().then(
+            function(value) {
+                myDisplayer(value)
+            },
+            function(error) {
+                myDisplayer(error) // if error is ther this line will be displayed
+            }
+        );
+    </script>
+</body></html>

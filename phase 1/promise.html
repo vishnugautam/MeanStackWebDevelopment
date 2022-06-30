@@ -1,0 +1,43 @@
+<!--promise will always be asynchronous-->
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="">
+</head>
+
+<body>
+    <p id="demo"></p>
+    <script>
+        function myDisplayer(some) {
+            document.getElementById("demo").innerHTML = some;
+        };
+
+        let myPromise = new Promise(function(myResolve, myReject) {
+            let x = 5;
+
+            //      producing code will take some time to run -> trying to change x value to 5
+            if (x == 0) {
+                myResolve("OK");
+            } else {
+                myReject("error");
+            }
+
+
+        });
+
+        myPromise.then(
+
+            function(value) {
+                myDisplayer(value);
+            },
+
+            function(error) {
+                myDisplayer(error);
+            }
+        );
+    </script>
+</body></html>
