@@ -1,0 +1,48 @@
+<!-- Asynchronous javascript and xml  -->
+<!-- API - application programming interface - which allows 2 apps to talk to each other -->
+<!-- All HTML elements are nodes, attributes are nodes, texts are nodes -->
+<!DOCTYPE html>
+<html lang="">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="">
+</head>
+
+<body>
+    <p id="demo">authors</p>
+    <ul id="myList"></ul>
+    <script>
+        const url = 'https://jsonplaceholder.typicode.com/users';
+        fetch(url) // fetches the url
+            .then((response) => {
+                console.log(response);
+                // without .json it returns a complete document info of jsonplaceholder page 
+                return response.json();
+            })
+
+            .then((data) => { // what are we going to do with the data which is returned from the above, is as below,
+                let authors = data;
+                // authors has 10 array elements now 
+                authors.map(function(author){ // map will call the function(author) for every array element
+                    // to dynamically according to data we are creating list elements 
+                    // for every element in the authors variable array, map will call the function(author) on it
+                    const node = document.createElement('li'); // this line creates li dynamically if we have 10 authors only 10 li elements will be created
+                    const textNode = document.createTextNode(`${author.name}`); // createTextNode creates a textNode like <h1>Hello</h1> Hello in between the tags as it is in the json format  
+                    // author.name is picked up from the above code
+                    node.appendChild(textNode); // appendChild takes the textNode and adds it in the node li element
+                    // after appending the node element we also append the node element in the myList id in the <ul> 
+                    console.log(node);
+                    // this displays - <li>Ervin Howell</li>
+
+                    // the below lines adds the appended <li>Ervin Howell</li> into the ul.
+                    document.getElementById('myList').appendChild(node);
+                });
+            })
+
+            .catch(function(error) {
+                console.log(error);
+            });
+    </script>
+</body></html>

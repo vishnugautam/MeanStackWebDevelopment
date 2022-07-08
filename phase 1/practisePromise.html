@@ -1,0 +1,53 @@
+<!--promise will always be asynchronous-->
+<!-- New keyword in JavaScript is used to create an instance of an object that has a constructor function. -->
+<!-- since classes are objects you have to initiate the class with the new keyword -->
+<!-- When a function is called with new keyword, the function will be used as a constructor, new will
+ create a blank, plain, Js object. -->
+<!-- A promise is an object which can be returned synchronously from an asynchronous function, so since promise
+is an object we have to use the new keyword to initiate it -->
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="">
+</head>
+
+<body>
+    <p id="demo"></p>
+    <script>
+        // the below function display the some in the place of demo id in <p> tag
+       function myDisplay(some) {
+        document.getElementById('demo').innerHTML = some;
+       };
+       // promise has a function with 2 parameters - myResolve and myReject
+       let myPromise = new Promise(function(myResolve, myReject){
+        // it is not mandatory to have both resolve and reject, we can only have resolve 
+            let x = 5;
+
+            if (x == 5){
+                myResolve("ok")
+            } else {
+                myReject('error')
+            }
+       });
+       console.log(myPromise); // this will show the promise object with [[ prototype ]]
+
+       // .then() method returns a promise 
+       //  It takes up to two arguments: callback functions for the success and failure cases of the Promise 
+       myPromise.then(
+
+        function(value){
+            myDisplay(value);
+        },
+
+        function(error){
+            myDisplay(error);
+        }
+       );
+
+    </script>
+</body>
+</html>

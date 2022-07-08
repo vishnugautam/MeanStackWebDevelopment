@@ -19,7 +19,8 @@
         //        };
         // the below line is like const myPromise = new Promise()
         async function myFunction() { // same as the above lines
-            return HH // instead of a string we gave HH which will return an error
+            // return HH // instead of a string we gave HH which will return an error
+            return Promise.resolve("hello")
             // returns promise.resolve("hello")
         }
         // if we put async infront of a function it attaches promise 
@@ -29,7 +30,7 @@
                 myDisplayer(value)
             },
             function(error) {
-                myDisplayer(error) // if error is ther this line will be displayed
+                myDisplayer(error) // if error is there this line will be displayed
             }
         );
     </script>

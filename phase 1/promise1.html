@@ -11,10 +11,12 @@
     <p id="demo"></p>
     <script>
         const myPromise = new Promise(function(myResolve, myReject) {
+            // creating another callback function, which takes function as 1 argument, and a value 
             setTimeout(function() {
                 myResolve("Hello Everyone")
             }, 3000)
         });
+        
         myPromise.then(function(value) {
             document.getElementById('demo').innerHTML = value;
         });

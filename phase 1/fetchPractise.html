@@ -1,0 +1,45 @@
+<!-- Asynchronous javascript and xml  -->
+<!-- API - application programming interface - which allows 2 apps to talk to each other -->
+<!-- All HTML elements are nodes, attributes are nodes, texts are nodes -->
+<!DOCTYPE html>
+<html lang="">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="">
+</head>
+
+<body>
+    <p id="demo">authors</p>
+    <ul id="myList"></ul>
+    <script>
+        const url = 'https://jsonplaceholder.typicode.com/users';
+        fetch(url)
+
+        .then((response){
+            return response.json();
+        })
+
+        .then((data) => {
+            let authors = data;
+
+            authors.map(function(author) {
+                const node = document.createElement('li');
+                const textNode = document.createTextNode(`${author.name}`));
+                node.appendChild(textNode);
+                document.getElementById('demo').appendChild(node);
+            });
+            
+        })
+
+        .catch(function(error){
+            console.log(error);
+        });
+
+    
+
+
+
+    </script>
+</body></html>
