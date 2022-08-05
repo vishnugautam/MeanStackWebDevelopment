@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script>
+        const wrapper = document.querySelector('.wrapper');
+        console.log(wrapper);
+        const form = wrapper.querySelectorAll('.form');
+        const submitInput = form[0].querySelector('input[type="submit"]');
+
+
+        function testVariable(e) {
+            e.defaultPrevented();
+            var formData = new FormData(form[0]);
+            alert(formData.get('nameField') + formData.get('secondName'));
+            //            var strText = document.getElementById("textone").value;
+            //            var strText1 = document.getElementById("textTWO").value;
+            //            var result = strText + ' ' + strText1;
+            //            document.getElementById('spanResult').textContent = result;
+        }
+    </script>
+</head>
+
+<body>
+    <div class="wrapper">
+        <form class="form">
+            <label id="nameField">
+                <input type="text" name="nameField" id="textone" />
+            </label>
+            <label id="secondName">
+                <input type="text" name="secondName" id="textTWO" />
+            </label>
+            <input onclick="testVariable()" value="submit" name="submit"><br />
+        </form>
+    </div>
+    <span id="spanResult">
+
+    </span>
+
+
+</body></html>

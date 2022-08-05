@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+
+<body>
+    <h1>Form data</h1>
+
+    <div class="wrapper">
+        <form class="form">
+
+            <label id="nameField">
+                <input type="text" name="nameField" placeholder="name" required>
+            </label>
+
+            <label id="emailField">
+                <input type="email" name="emailField" placeholder="email" required>
+            </label>
+
+            <label id="passwordField">
+                <input type="password" name="passwordField" placeholder="password" required>
+            </label>
+
+            <input type="submit" value="submit" onclick="getDataForm()" name="submit">
+
+        </form>
+
+
+    </div>
+    <script>
+        const wrapper = document.querySelector('.wrapper');
+        const form = wrapper.querySelectorAll('.form');
+        console.log(form[0]);
+        const submitInput = form[0].querySelector('input[type="submit"]');
+
+        function getDataForm(e) {
+            e.preventDefault();
+            var formData = new FormData(form[0]);
+            console.log(formData);
+            alert(formData.get('nameField') + "-" + formData.get('emailField') + "-" + formData.get('passwordField'));
+        }
+    </script>
+</body></html>

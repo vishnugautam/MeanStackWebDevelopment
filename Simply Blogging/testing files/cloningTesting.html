@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>JavaScript cloneNode() Demo</title>
+</head>
+
+<body>
+    <ul id="menu">
+        <li>Home</li>
+        <li>Services</li>
+        <li>About</li>
+        <li>Contact</li>
+    </ul>
+    <input type="text" id="input">
+    <button type="submit" id="submit"></button>
+    <script>
+        var i = 0;
+        input = document.getElementById('input');
+        submit = document.getElementById('submit');
+
+        submit.addEventListener('click', function() {
+
+            if (input != "ram") {
+                let menu = document.querySelector('#menu');
+                let clonedMenu = menu.cloneNode(true);
+                clonedMenu.id = `menu-mobile${i}`;
+                document.body.appendChild(clonedMenu);
+                i++;
+            }
+        });
+    </script>
+</body></html>

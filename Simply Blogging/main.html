@@ -21,14 +21,45 @@
         }
 
         .box {
-            border: 1px solid black;
+            border: 1px solid grey;
             width: 100%;
         }
 
+        .createBlog {
+            margin: 30px;
+        }
 
+        #blogContentField {
+            width: 50%;
 
-        .clear {
-            clear: both;
+        }
+
+        #submit {
+            width: 20%;
+        }
+
+        .wrapper {
+            margin-left: auto;
+        }
+
+        #blog1 {
+            text-overflow: ellipsis;
+            overflow: hidden;
+            white-space: nowrap;
+        }
+
+        .hidden {
+            visibility: hidden;
+            opacity: 0;
+            transition: visibility 0s 2s, opacity 2s linear;
+            display: none;
+        }
+
+        #fullBlogCtn {
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+            transition: 0.3s;
+            width: 50%;
+            margin: 0 auto;
         }
     </style>
     <section>
@@ -60,81 +91,71 @@
             </header>
         </div>
 
-        <h2>Top 5</h2>
+        <h2>Blogs</h2>
 
-        <div class="box container">
-            <div class="row">
-                <div class="box1 col card">
-
-                    <img class="card-img-top" src="placehold.it-635x421.gif">
-
-                    <div class="card-body">
-                        <h5>Title</h5>
-                        <p>Blog 1 info</p>
-                    </div>
+        <div id="fullBlogCtn" class="card">
+            <div class="container">
+                <h2 id="fullBlogTitle"></h2>
+                <p id="fullBlog"></p>
+                <div class="d-flex">
                     <div class="btn-group">
-                        <button type="button">View</button>
-                        <button type="button">Edit</button>
+                        <button type="button">Exit</button>
                     </div>
-                    <small class="text-muted">9 mins</small>
                 </div>
-                <div class="box2 col">
-                    <div>
-                        <svg>PlaceHolder</svg>
-                    </div>
-                    <div>
-                        <p>Blog 1 info</p>
-                    </div>
+            </div>
+        </div>
+        <div class="box container">
+            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3" id="placingArea">
+                <div class="box1 col card" id="blogArea">
+                    <img class="card-img-top" src="https://placehold.jp/300x200.png" id="image">
+                    <div class="card-body">
+                        <h5 class='title'>Title</h5>
+                        <p class="blog1" id="blogInfo">Blog 1 info</p>
 
+                        <div class="d-flex">
+                            <div class="btn-group">
+                                <button type="button" class="view">View</button>
+                                <button type="button">Edit</button>
+                            </div>
+                            <small class="text-muted">9 mins</small>
+                        </div>
+                    </div>
                 </div>
-                <div class="box3"></div>
-                <div class="box4"></div>
-                <div class="box5"></div>
             </div>
         </div>
 
 
-        <div class="clear">
-            <h2>Create Blogs!</h2>
+        <h2>Create Blogs!</h2>
+        <div class="container">
+            <div class="wrapper">
+                <form class="form" id="myForm">
+                    <div class="form-group">
+                        <label id="nameField" class="col-4">
+                            <input type="text" name="nameField" placeholder="name" class="form-control" required>
+                        </label><br>
 
-            <form>
+                        <label id="emailField" class="col-4">
+                            <input type="email" name="emailField" placeholder="email" class="form-control" required>
+                        </label><br>
 
-                <div class="row">
-                    <div class="col">
-                        <input type="text" class="form-control" placeholder="First name" aria-label="First name">
+                        <label id="blogTitleField" class="col-6">
+                            <input type="text" name="blogTitleField" placeholder="blog title" class="form-control" required>
+                        </label><br>
+
+                        <label id="blogContentField">
+                            <textarea name="blogContentField" placeholder="Blog Content" class="form-control" rows="4" required maxlength="250"></textarea>
+                            <!--                        <text type="text" name="blogContentField" placeholder="Blog content..." class="form-control" rows="3" required>-->
+                        </label>
+                        <label>
+                            <div class="mb-3">
+                                <label for="formFileSm" class="form-label">Small file input example</label>
+                                <input class="form-control form-control-sm" id="formFileSm" type="file" accept="image/jpeg">
+                            </div>
+                        </label>
+                        <input type="submit" value="submit" onclick="getDataForm()" onSubmit="return false" class="form-control" name="submit" id="submit">
                     </div>
-                    <div class="col">
-                        <input type="text" class="form-control" placeholder="Last name" aria-label="Last name">
-                    </div>
-                </div>
-                <div class="mb-3">
-                    <label for="exampleInputEmail1" class="form-label">Email address</label>
-                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-                    <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
-                </div>
-                <div class="col-md-6">
-                    <label for="inputCity" class="form-label">City</label>
-                    <input type="text" class="form-control" id="inputCity">
-                </div>
-                <div class="col-md-4">
-                    <label for="inputState" class="form-label">State</label>
-                    <select id="inputState" class="form-select">
-                        <option selected>Choose...</option>
-                        <option>...</option>
-                    </select>
-                </div>
-                <div class="input-group">
-                    <span class="input-group-text">Blog content</span>
-                    <textarea class="form-control" aria-label="With textarea"></textarea>
-                </div>
-
-                <div class="mb-3 form-check">
-                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                    <label class="form-check-label" for="exampleCheck1">Check me out</label>
-                </div>
-                <button type="submit" class="btn btn-primary">Submit</button>
-
-            </form>
+                </form>
+            </div>
         </div>
 
         <div>
@@ -143,5 +164,6 @@
             </footer>
         </div>
     </section>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+    <script src="scripts.js"></script>
+    <!--    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>-->
 </body></html>
